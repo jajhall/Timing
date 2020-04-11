@@ -417,7 +417,7 @@ class HighsTimer {
    */
   double getTime() {
     using namespace std::chrono;
-    return duration_cast<duration<double>>(wall_clock::now() - start_time)
+    return duration_cast<duration<double> >(wall_clock::now() - start_time)
         .count();
   }
   /**
@@ -425,25 +425,25 @@ class HighsTimer {
    */
   double getWallTime() {
     using namespace std::chrono;
-    return duration_cast<duration<double>>(wall_clock::now().time_since_epoch())
+    return duration_cast<duration<double> >(wall_clock::now().time_since_epoch())
         .count();
   }
 
   double getWallTime0() {
     using namespace std::chrono;
-    return duration_cast<duration<double>>(std::chrono::system_clock::now().time_since_epoch())
+    return duration_cast<duration<double> >(std::chrono::system_clock::now().time_since_epoch())
         .count();
   }
 
   double getWallTime1() {
     using namespace std::chrono;
-    return duration_cast<duration<double>>(std::chrono::steady_clock::now().time_since_epoch())
+    return duration_cast<duration<double> >(std::chrono::steady_clock::now().time_since_epoch())
         .count();
   }
 
   double getWallTime2() {
     using namespace std::chrono;
-    return duration_cast<duration<double>>(std::chrono::high_resolution_clock::now().time_since_epoch())
+    return duration_cast<duration<double> >(std::chrono::high_resolution_clock::now().time_since_epoch())
         .count();
   }
 
