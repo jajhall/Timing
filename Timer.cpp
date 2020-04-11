@@ -36,13 +36,14 @@ int main () {
   report();
   std::cout << "Enter number of calls: ";
   std::cin >> num;
+  std::cout << num << std::endl;
   if (!num) return 1;
   HighsTimer timer;
   int work_clock = timer.clock_def("Work", "Wrk");
-  int time_clock = timer.clock_def("Time", "Tim");
-  int time0_clock = timer.clock_def("Time0", "Tt0");
-  int time1_clock = timer.clock_def("Time1", "Tt1");
-  int tick_clock = timer.clock_def("Tock", "Tik");
+  int time_clock = timer.clock_def("high_resolution", "Tim");
+  int time0_clock = timer.clock_def("system_clock", "Tt0");
+  int time1_clock = timer.clock_def("steady_clock", "Tt1");
+  int tick_clock = timer.clock_def("Tick", "Tik");
   std::vector<int> clock_list;
   clock_list.push_back(work_clock);
   clock_list.push_back(time_clock);
