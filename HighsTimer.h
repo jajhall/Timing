@@ -441,12 +441,6 @@ class HighsTimer {
         .count();
   }
 
-  double getWallTime2() {
-    using namespace std::chrono;
-    return duration_cast<duration<double> >(std::chrono::high_resolution_clock::now().time_since_epoch())
-        .count();
-  }
-
   /**
    * @brief Return the current CPU ticks
    */

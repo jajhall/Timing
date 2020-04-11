@@ -26,11 +26,6 @@ void multipleTimeCalls1(HighsTimer& timer, const int n) {
     timer.getWallTime1();
 }
 
-void multipleTimeCalls2(HighsTimer& timer, const int n) {
-  for(int i = 0; i < n; i++)
-    timer.getWallTime2();
-}
-
 void multipleTickCalls(HighsTimer& timer, const int n) {
   for(int i = 0; i < n; i++)
     timer.getWallTick();
@@ -47,14 +42,12 @@ int main () {
   int time_clock = timer.clock_def("Time", "Tim");
   int time0_clock = timer.clock_def("Time0", "Tt0");
   int time1_clock = timer.clock_def("Time1", "Tt1");
-  int time2_clock = timer.clock_def("Time2", "Tt2");
   int tick_clock = timer.clock_def("Tock", "Tik");
   std::vector<int> clock_list;
   clock_list.push_back(work_clock);
   clock_list.push_back(time_clock);
   clock_list.push_back(time0_clock);
   clock_list.push_back(time1_clock);
-  clock_list.push_back(time2_clock);
   clock_list.push_back(tick_clock);
   timer.startRunHighsClock();
 
@@ -74,10 +67,6 @@ int main () {
   multipleTimeCalls1(timer, num);
   timer.stop(time1_clock);
 
-  timer.start(time2_clock);
-  multipleTimeCalls2(timer, num);
-  timer.stop(time2_clock);
-
   timer.start(tick_clock);
   multipleTickCalls(timer, num);
   timer.stop(tick_clock);
@@ -88,7 +77,6 @@ int main () {
   timer.clock_num_call[time_clock] = num;
   timer.clock_num_call[time0_clock] = num;
   timer.clock_num_call[time1_clock] = num;
-  timer.clock_num_call[time2_clock] = num;
   timer.clock_num_call[tick_clock] = num;
   timer.report("", clock_list);
   return 0;
