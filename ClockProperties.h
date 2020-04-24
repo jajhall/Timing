@@ -14,7 +14,7 @@ void printRatio(){
     std::cout << "             " << static_cast<double>(MicroSec::num)/MicroSec::den << " microseconds " << std::endl;
 }
 
-void report() {
+void reportClockProperties() {
     
     std::cout << std::boolalpha << std::endl;
     
